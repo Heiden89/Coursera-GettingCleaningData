@@ -29,6 +29,8 @@ total_set <- rbind(train_set,test_set)
 feature_name$V2 <- gsub("-mean",'Mean',feature_name$V2) 
 feature_name$V2 <- gsub("-std",'Std',feature_name$V2)
 
+feature_name$V2 <- gsub("[\\(\\)]",'',feature_name$V2)
+
 names(total_set)[1] <- "Activityid"
 names(total_set)[2:ncol(total_set)]<- as.character(feature_name$V2)
 
